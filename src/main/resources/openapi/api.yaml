@@ -1,0 +1,44 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: RESTful training
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:8080/rest/api
+paths:
+  /greeting:
+    get:
+      operationId: Get greeting
+      summary: Receive a nice greeting
+      parameters:
+        - name: firstName
+          in: query
+          required: false
+          description: The first name of the person to be greeted (optional)
+          schema:
+            type: string
+        - name: X-firstName
+          in: header      
+          required: false
+          description: The first name of the person to be greeted (optional)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a random greeting, optionally including your name if specified
+  /greeting/{firstName}:
+    get:
+      operationId: Get greeting by firstName
+      summary: Receive a nice greeting by your firstName
+      parameters:
+        - name: firstName
+          in: path
+          required: true
+          description: The first name of the person to be greeted (required)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a random greeting including your name 
+          

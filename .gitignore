@@ -1,0 +1,13 @@
+/target/
+/src/main/resources/openapi/html.out/
+
+### Eclipse ###
+/.project
+/.classpath
+/.settings/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
