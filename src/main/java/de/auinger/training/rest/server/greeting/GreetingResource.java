@@ -1,4 +1,4 @@
-package de.auinger.training.rest.server;
+package de.auinger.training.rest.server.greeting;
 
 import java.util.Random;
 
@@ -7,8 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/api/greeting")
-public class GreetingRestController {
+@Path("/greeting")
+public class GreetingResource {
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
