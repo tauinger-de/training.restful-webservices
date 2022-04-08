@@ -40,6 +40,20 @@ public class BooksResource {
         return booksService.findBook(isbn);
     }
 
+    @GET
+    @Path("/{id:[0-9]+}")
+    public void getBook(@PathParam("id") int bookId) throws BookException {
+    	System.out.println("getBook() for id: " + bookId);
+        // TODO add some useful call for just the id
+    }
+
+    @GET
+    @Path("/{isbn}")
+    @Produces(MediaType.TEXT_PLAIN) // overwrites annotation at class level
+    public String getBookContent(@PathParam("isbn") String isbn) throws BookException {
+        return new String(booksService.findBook(isbn).getContent());
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     // for now, we just use "Book" as the container for incoming create requests - although it has too many fields
