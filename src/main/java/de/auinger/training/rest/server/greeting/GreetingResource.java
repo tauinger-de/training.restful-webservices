@@ -13,8 +13,10 @@ import java.util.Random;
 public class GreetingResource {
 
     // jax-rs creates an instance of this class FOR EACH REQUEST -- hence we can do stuff like this:
-    @QueryParam("firstName") String firstNameFromQuery;
-    @HeaderParam("X-firstName") String firstNameFromHeader;
+    @QueryParam("firstName")
+    String firstNameFromQuery;
+    @HeaderParam("X-firstName")
+    String firstNameFromHeader;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
