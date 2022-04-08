@@ -42,9 +42,10 @@ public class BooksResource {
 
     @GET
     @Path("/{id:[0-9]+}")
-    public void getBook(@PathParam("id") int bookId) throws BookException {
+    public String getBook(@PathParam("id") int bookId) {
     	System.out.println("getBook() for id: " + bookId);
         // TODO add some useful call for just the id
+        return "" + bookId;
     }
 
     @GET
