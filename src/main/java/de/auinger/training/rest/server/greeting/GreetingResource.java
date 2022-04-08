@@ -1,5 +1,7 @@
 package de.auinger.training.rest.server.greeting;
 
+import de.auinger.training.rest.server.common.ApiException;
+
 import javax.ws.rs.CookieParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -9,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response;
 import java.util.Random;
 
 @Path("/greeting")
@@ -64,6 +67,13 @@ public class GreetingResource {
                 greeting = "Guten Tag";
         }
         if (firstName != null && !firstName.isEmpty()) {
+            // do some checking on the name -- just for having a reason of throwing a WebApplicationException
+            if (Character.isLowerCase(firstName.charAt(0))) {
+                // unfortunately Jersey doesn't include given message in output...
+                throw new ApiException(
+                        "The first-name is invalid since it starts with a lowercase letter",
+                        Response.Status.BAD_REQUEST);
+            }
             greeting = greeting + " " + firstName;
         }
         return greeting;
