@@ -1,5 +1,5 @@
-**/target/
-/src/main/resources/openapi/html.out/
+/target/
+/api/src/main/resources/openapi/html.out/
 
 ### Eclipse ###
 /.project
