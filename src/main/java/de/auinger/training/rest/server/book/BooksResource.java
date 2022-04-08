@@ -42,7 +42,7 @@ public class BooksResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    // for now we just use "Book" as the container for incoming create requests - although it has too many fields
+    // for now, we just use "Book" as the container for incoming create requests - although it has too many fields
     public Response createBook(Book book) throws BookException, URISyntaxException {
         String isbn = booksService.newBook(book.getTitle());
         return Response
