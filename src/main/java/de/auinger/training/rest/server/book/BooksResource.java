@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Path("/books")
-@Produces(MediaType.APPLICATION_JSON)
+@Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_HTML}) // html required for BookHtmlBodyWriter to kick in
 public class BooksResource {
 
     @Inject
